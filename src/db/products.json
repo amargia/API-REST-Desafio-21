@@ -1,0 +1,32 @@
+[
+    {
+      "_id": 1,
+      "name": "Mouse Dell",
+      "description": "Mouse marca Dell inalámbrico",
+      "code": "MDI",
+      "thumbnail": "https://falabella.scene7.com/is/image/Falabella/gsc_112886067_117486_1?wid=1500&hei=1500&qlt=70",
+      "price": 10000,
+      "stock": 50,
+      "timestamp": 1660603438175
+    },
+    {
+      "_id": 2,
+      "name": "Gabinete Gamer",
+      "description": "Gabinete Gamer Thermaltake",
+      "code": "GBG20",
+      "thumbnail": "https://media.spdigital.cl/__sized__/products/ai2oonqt_07a278a3-thumbnail-1080x1080-70.jpg",
+      "price": 211250,
+      "stock": 40,
+      "timestamp": 1659884104417
+    },
+    {
+      "_id": 3,
+      "name": "Cougar Teclado Gamer",
+      "description": "Teclado Gamer Semi mecánico retroiluminado",
+      "code": "CTG",
+      "thumbnail": "https://cdn.shopify.com/s/files/1/0653/6088/8065/products/1_caaecdd4-3b96-4cc7-ba35-bf964e2418fc_1024x1024.jpg?v=1658861732",
+      "price": 39990,
+      "stock": 70,
+      "timestamp": 1659884104436
+    }
+  ]

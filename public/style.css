@@ -1,0 +1,32 @@
+form, .table, .form, table {
+    margin: 0 auto;
+    width: 50%;
+}
+body, .tbody, .form-control {
+    background-color: #b7bcff;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+a:hover {
+color: #000547;
+}
+th, td, .text {
+    color: white;
+}
+.btn {
+    background-color: #000547;
+    color: #b7bcff;
+    border-color: #b7bcff;
+}
+.btn:hover {
+    background-color: #b7bcff;
+    color: #000547;
+    border-color: #000547;
+}
+.carrito {
+    width: 50px;
+    height: 50px;
+    float: right;
+}

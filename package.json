@@ -1,0 +1,46 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha ./test/api.test.js --exit",
+    "test-manual": "node ./test/apiTestManual.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amargia/API-REST-Desafio-21.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amargia/API-REST-Desafio-21/issues"
+  },
+  "homepage": "https://github.com/amargia/API-REST-Desafio-21#readme",
+  "dependencies": {
+    "axios": "^1.2.0",
+    "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "minimist": "^1.2.7",
+    "mongoose": "^6.6.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.5.1",
+    "sqlite3": "^5.0.11",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0",
+    "supertest": "^6.3.1"
+  }
+}

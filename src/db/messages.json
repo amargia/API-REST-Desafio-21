@@ -1,0 +1,23 @@
+[
+    {
+        "_id": 1,
+        "email": "Maria",
+        "fecha": "26/11/2022 - 18:05:36",
+        "mensaje": "Hola Pepe",
+        "timestamp": 1659884104416
+    },
+    {
+        "_id": 2,
+        "email": "Pepe",
+        "fecha": "26/11/2022 - 18:05:50",
+        "mensaje": "Hola Maria",
+        "timestamp": 1660603438180
+    },
+    {
+        "_id": 3,
+        "email": "Maria",
+        "fecha": "26/11/2022 - 18:06:10",
+        "mensaje": "Cómo va, Pepe?",
+        "timestamp": 1659884103450
+    }
+]
