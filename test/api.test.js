@@ -1,101 +1,50 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 import { expect } from "chai";
+import { describe } from "mocha";
 import supertest from "supertest";
 import app from "../app.js";
-import { describe } from "mocha";
 
-let request;
-let server;
+const request = supertest(app);
 
-//Comienzo del Test donde se conecta a la DB
-describe("testeo API REST", () => {
-    before(async function () {
-        await connectDb();
-        server = await startServer();
-        request = supertest(
-          `http://localhost:${server.address().port}/lista-productos`
-        );
+describe('Testing API RESTful', () => {
+  describe('GET', () => {
+      it('Debería retornar status 200', async() => {
+          const response = await request.get('/');
+          expect(response.status).to.equal(200);
       });
-    
-      after(function () {
-        mongoose.disconnect();
-        server.close();
+  })
+  describe('POST', () => {
+      it('Debería retornar status 201', async() => {
+          const obj = {
+              name: 'Test',
+              price: 1234,
+              thumbnail: 'Testing Image'
+          }
+          const response = await request.post('/').send(obj);
+          expect(response.status).to.equal(201);
       });
-    
-    //Test para probar el GET de productos
-    describe("GET", () => {
-        it("should return 200", async () => {
-            const response = await request.get("/");
-            expect(response.status).to.equal(200);
-        });
-    });
-    
-    //Test para probar el POST de productos
-    describe("POST", () => {
-        it("should add product", async () => { 
-            const response = await request.post("/").send({
-                title: "test",
-                price: 10,
-                thumbnail: "test",
-            });
-            expect(response.status).to.equal(201);
-        });
-    });
-    
-    //Test para probar el PUT de productos
-    describe("PUT", () => {
-        it("should change product", async () => {
-            let allProducts = await request.get('/');
-            allProducts = JSON.parse(allProducts.text).result;
-            const lastProd = allProducts[allProducts.length - 1]
-            const response = await request.put(`/${lastProd.id}`).send({
-                name: 'test',
-                price: 123,
-                thumbnail: 'testUrl'
-            });
-            expect(response.status).to.equal(204);
-        });
-    });
-    
-    //Test para probar el DELETE de productos
-    describe("DELETE", () => {
-        it("should delete product", async () => {
-            let allProducts = await request.get('/');
-            allProducts = JSON.parse(allProducts.text).result;
-            const lastProd = allProducts[allProducts.length - 1]
-            const response = await request.delete(`/${lastProd.id}`)
-            expect(response.status).to.equal(204);
-        });
-    });
-});
-
-
-//funciones para conectar a la base de datos MongoDB e inicializar servidor
-async function connectDb() {
-    try {
-        const URL = process.env.MONGO_URL || 'mongodb://localhost:27017/test'
-        await mongoose.connect(URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log('Connected to MongoDB');
-    } catch (error) {
-        console.log('Could not connect to MongoDB', error);
-    }
-}
-
-async function startServer() {
-    return new Promise((resolve, reject) => {
-      const PORT = 0;
-      const server = app.listen(PORT, () => {
-        console.log(
-          `Servidor express escuchando en el puerto ${server.address().port}`
-        );
-        resolve(server);
+  })
+  describe('PUT', () => {
+      it('Debería retornar status 204', async() => {
+          let allProducts = await request.get('/');
+          allProducts = JSON.parse(allProducts.text).result;
+          const lastProd = allProducts[allProducts.length - 1]
+          const obj = {
+              name: 'Test2',
+              price: 123,
+              thumbnail: 'Testing Image2'
+          }
+          const response = await request.put(`/${lastProd.id}`).send(obj);
+          expect(response.status).to.equal(204);
       });
-      server.on("error", (error) => {
-        console.log(`Error en Servidor: ${error}`);
-        reject(error);
-      });
-    });
-}
+  })
+  describe('DELETE', () => {
+          it('Debería retornar status 204', async() => {
+              let allProducts = await request.get('/');
+              allProducts = JSON.parse(allProducts.text).result;
+              const lastProd = allProducts[allProducts.length - 1]
+              const response = await request.delete(`/${lastProd.id}`)
+              expect(response.status).to.equal(204);
+          });
+      })
+})
