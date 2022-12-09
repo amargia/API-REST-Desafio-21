@@ -8,10 +8,10 @@ import ProductosDaoMongoDB from "./productos/ProductosDaoMongoDB.js";
 import MensajesDaoMongoDB from "./mensajes/MensajesDaoMongoDB.js";
 import UsuariosDaoMongoDB from "./usuarios/UsuariosDaoMongoDB.js";
 
-import minimist from 'minimist';
+// import minimist from 'minimist';
 
-const args = minimist(["-p", process.argv.slice(2)]);
-const PERS = args.p[0];
+// const args = minimist(["-p", process.argv.slice(2)]);
+const PERS = 'mongodb'
 
 import dotenv from "dotenv";
 dotenv.config();

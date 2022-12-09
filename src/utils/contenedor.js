@@ -69,11 +69,11 @@ const deleteById = async (id, ruta) => {
 const changeById = async (id, product, ruta) => {
     try {
         const array = await list(ruta);
-        let index = array.findIndex((el) => el.id == id);
+        let index = array.findIndex((el) => el._id == id);
         if (index == -1) {
             return (`No hay producto con id ${id}`);
         } else {
-            product.id = id;
+            product._id = id;
             product.timestamp = array[index].timestamp;
             const editedProduct = {...array[index], ...product};
             array[index] = editedProduct;
