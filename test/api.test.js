@@ -63,7 +63,7 @@ describe("Testing API RESTful", () => {
       const data = await request.get("/");
       const arrLength = data.body.length;
       
-      const id = "63694a0d5dda5b5774a809b4" //cambiar id, porque ese producto lo eliminó
+      const id = "63914abd27efc8afc72f20b6" //con esta debería funcionar, ya que es un prod que no se ha eliminado aún
       const response = await request.delete(`/${id}`); 
       
       const data2 = await request.get("/");
