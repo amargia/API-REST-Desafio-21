@@ -16,10 +16,10 @@ const getProductsListById = async (req, res) => {
 
 //post productsList
 const postProductsList = async (req, res) => {
-    const {name, description, code, price, thumbnail, stock} = req.body;
-    const newProduct = await saveProduct({name, description, code, price, thumbnail, stock});
+    const {name, description, code, price, thumbnail, stock, timestamp} = req.body;
+    const newProduct = await saveProduct({name, description, code, price, thumbnail, stock, timestamp});
 
-    res.status(200).send(newProduct);
+    res.status(201).send(newProduct);
 }
 
 //update productsList
